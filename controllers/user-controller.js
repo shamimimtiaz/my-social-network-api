@@ -73,7 +73,7 @@ deleteUser({ params }, res) {
 addFriend({ params }, res) {
   User.findOneAndUpdate(
     { _id: params.id },
-    { $addToSet: { friends: params.friendsId } },
+    { $addToSet: { friends: params.friendsId } }, //add object to the array without any dublication
     { new: true }
   )
     .then((dbUserData) => res.json(dbUserData))
